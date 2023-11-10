@@ -11,6 +11,9 @@
 
 もし、iPhoneの拡張子がHEICの画像ファイルがあるなら、最初に「heic-to-jpeg.exe」を実行してから「images-to-pdf.exe」を実行してください。
 
+なお、pdf-inにある全ての画像ファイルを対象にするので、最初から入っているサンプル画像は削除してから使ってください。
+
+
 ## How to install
 
 ```sh
