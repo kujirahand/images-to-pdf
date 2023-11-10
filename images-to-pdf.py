@@ -44,7 +44,7 @@ window = sg.Window('画像一覧からPDF作成ツール', layout)
 image_files = DEFAULT_IMAGES
 while True:
     event, values = window.read()
-    print(f'event={event}, values={values}')
+    # print(f'event={event}, values={values}')
     if event in (None, '終了'):
         break
     if event == '保存先の変更':
