@@ -9,10 +9,12 @@ DEFAULT_PDF_PATH = os.path.join(ROOT, 'images.pdf')
 IMAGE_TYPES = '*.jpg;*.jpeg;*.jpe;*.heic'
 # デフォルトパスにある画像をリストに追加
 IMAGE_DIR = os.path.join(ROOT, 'pdf-in')
-DEFAULT_IMAGES = [
-    os.path.join(IMAGE_DIR, f) for f in os.listdir(IMAGE_DIR)
-    if f.endswith('.jpeg') or f.endswith('.jpg') or 
-        f.endswith('.heic') or f.endswith('.png')]
+DEFAULT_IMAGES = []
+if os.path.exists(IMAGE_DIR): # パスがあれば収集
+    DEFAULT_IMAGES = [
+        os.path.join(IMAGE_DIR, f) for f in os.listdir(IMAGE_DIR)
+        if f.endswith('.jpeg') or f.endswith('.jpg') or 
+            f.endswith('.heic') or f.endswith('.png')]
 # 画面レイアウトを定義
 frame_pdf_path = [
     [

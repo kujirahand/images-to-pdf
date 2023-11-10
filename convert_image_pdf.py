@@ -63,7 +63,12 @@ def open_image(image_file):
 
 def convert_to_pdf(image_files, pdf_path, per_page):
     # 画像ファイルのフィルタ
-    image_files = list(filter(lambda f: not os.path.basename(f).startswith('___'), image_files))
+    image_files = list(filter(
+        lambda f: not os.path.basename(f).startswith('___'), image_files))
+    # 読み込み可能なファイル形式のみ残す
+    image_files = list(filter(
+        lambda f: f.endswith('.jpg') or f.endswith('.jpeg') or f.endswith('.jpe') or f.endswith('.png') or f.endswith('.heic'), 
+        image_files))
     # 縦画像が多いか横画像が多いか判定する
     portrait_nums = 0
     landscape_nums = 0

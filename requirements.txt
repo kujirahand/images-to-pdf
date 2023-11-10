@@ -2,3 +2,4 @@ Pillow
 ReportLab
 pillow_heif
 pyinstaller
+PySimpleGUI
