@@ -11,3 +11,9 @@
 
 もし、iPhoneの拡張子がHEICの画像ファイルがあるなら、最初に「heic-to-jpeg.exe」を実行してから「images-to-pdf.exe」を実行してください。
 
+## How to install
+
+```sh
+python3 -m pip install -r requirements.txt
+```
+
