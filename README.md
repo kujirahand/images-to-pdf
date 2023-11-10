@@ -5,18 +5,18 @@
 【使い方】
 
 1. プログラムをダウンロードしてZIPを解凍します。
-2. 「pdf-in」というフォルダにPDFに変換したい画像ファイル(JPEG)をコピーします。
+2. 「pdf-in」というフォルダにPDFに変換したい画像ファイル(JPEG/HEIC/PNG)をコピーします。
 3. 「images-to-pdf.exe」を実行します。
 4. すると、images.pdfというファイルが作成されます。
-
-もし、iPhoneの拡張子がHEICの画像ファイルがあるなら、最初に「heic-to-jpeg.exe」を実行してから「images-to-pdf.exe」を実行してください。
 
 なお、pdf-inにある全ての画像ファイルを対象にするので、最初から入っているサンプル画像は削除してから使ってください。
 
 
-## How to install
 
-Pythonから実行する場合、以下のようにしてパッケージをインストールします。
+## Pythonから利用する場合
+
+以下は、Pythonから実行する場合の方法です。
+以下のようにしてパッケージをインストールします。
 
 ```sh
 python3 -m pip install -r requirements.txt
