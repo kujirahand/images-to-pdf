@@ -1,6 +1,6 @@
 # images-to-pdf
 
-大量の画像を1ページ6枚に割り付けてPDFに変換するプログラム
+大量の画像を1ページ6枚に割り付けてPDFに変換するプログラム。
 
 【使い方】
 
@@ -16,7 +16,16 @@
 
 ## How to install
 
+Pythonから実行する場合、以下のようにしてパッケージをインストールします。
+
 ```sh
 python3 -m pip install -r requirements.txt
+```
+
+実行ファイルに変換する場合:
+
+```sh
+pyinstaller heic-to-jpeg.py --onefile
+pyinstaller images-to-pdf.py --onefile
 ```
 
