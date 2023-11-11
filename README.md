@@ -12,6 +12,15 @@
 ## コマンドラインから利用する場合
 
 コマンドラインから利用する場合、Pythonをインストールしてある必要があります。
+下記のZIPファイルをダウンロードして解凍します。
+
+- [ソースコード(ZIP)](https://github.com/kujirahand/images-to-pdf/archive/refs/heads/main.zip)
+
+ターミナル(WindowsならPowerShell、macOSならターミナル.app)を起動します。そして、カレントディレクトリを移動します。
+
+```sh
+cd (解凍したソースコードのパス)
+```
 
 ### 必要なライブラリのインストール
 
@@ -25,7 +34,7 @@ python3 -m pip install -r requirements.txt
 ```
 ### プログラムを実行する
 
-以下のコマンドを実行します。
+以下のコマンドを実行するとプログラムが起動します。
 
 ```sh
 # --- Windowsの場合 ---
