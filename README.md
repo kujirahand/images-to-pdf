@@ -1,30 +1,35 @@
 # images-to-pdf
 
-大量の画像を1ページ4/6/8枚に割り付けてPDFに変換するプログラム。
+大量の画像を1ページ4/6/8枚に割り付けてPDFに変換するプログラムです。
 
-## Windows版の使い方
+## Windowsで実行ファイルを使う方法
 
-1. プログラムをダウンロードしてZIPを解凍します。
-2. 「pdf-in」というフォルダにPDFに変換したい画像ファイル(JPEG/HEIC/PNG)をコピーします。
-3. 「images-to-pdf.exe」を実行します。
-4. 変換する画像ファイルを確認して「PDF作成」ボタンを押します。
-5. すると、images.pdfというファイルが作成されます。
+実行ファイルを使う場合、以下の手順で利用してください。
 
-なお、pdf-inにある全ての画像ファイルを対象にするので、最初から入っているサンプル画像は削除してから使ってください。
-
-
+1. [release](https://github.com/kujirahand/images-to-pdf/releases)からZIPファイルをダウンロード
+2. ZIPファイルを解凍して、`images-to-pdf.exe`を実行する
 
 ## コマンドラインから利用する場合
 
-以下は、コマンドライン(Python)から実行する場合の方法です。
-最初にパッケージをインストールします。
+コマンドラインから利用する場合、Pythonをインストールしてある必要があります。
+
+### 必要なライブラリのインストール
+
+必要なライブラリをインストールします。
 
 ```sh
+# --- Windowsの場合 ---
+python -m pip install -r requirements.txt
+# --- macOS/Linuxの場合 ---
 python3 -m pip install -r requirements.txt
 ```
+### プログラムを実行する
 
-そして、`pdf-in`というフォルダにある画像をPDFに変換するには下記のコマンドを実行します。
+以下のコマンドを実行します。
 
 ```sh
-python3 convert_image_pdf.py
+# --- Windowsの場合 ---
+python images-to-pdf.py
+# --- macOS/Linuxの場合 ---
+python3 images-to-pdf.py
 ```
