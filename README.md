@@ -2,12 +2,6 @@
 
 大量の画像を1ページ4/6/8枚に割り付けてPDFに変換するプログラムです。
 
-## 実行ファイルを使う方法
-
-実行ファイルを使う場合、以下の手順で利用してください。
-
-1. [release](https://github.com/kujirahand/images-to-pdf/releases)からZIPファイルをダウンロード
-2. ZIPファイルを解凍して、`images-to-pdf.exe`を実行する
 
 ## コマンドラインから利用する場合
 
@@ -42,3 +36,12 @@ python images-to-pdf.py
 # --- macOS/Linuxの場合 ---
 python3 images-to-pdf.py
 ```
+
+## 実行ファイルを使う方法
+
+実行ファイルを使う場合、以下の手順で利用してください。
+
+1. [release](https://github.com/kujirahand/images-to-pdf/releases)からZIPファイルをダウンロード
+2. ZIPファイルを解凍して、`images-to-pdf.exe`を実行する
+
+
