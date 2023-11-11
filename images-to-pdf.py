@@ -25,10 +25,8 @@ frame_pdf_path = [
 frame_images = [
     [ sg.Listbox(DEFAULT_IMAGES, size=(100,10), enable_events=True, key='-LIST-') ],
     [
-        sg.FilesBrowse('画像を指定',
-                       key='-FILES-', 
-                       file_types=(('対応画像', IMAGE_TYPES),),
-                       target='-LIST-'), 
+        sg.Button('画像を追加'),
+        sg.Button('画像をクリア'),
     ],
 ]
 frame_per_page = [
@@ -51,12 +49,18 @@ while True:
         break
     if event == '保存先の変更':
         pass
+    if event == '画像を追加':
+        files = sg.popup_get_file(
+            '画像を選択してください', 
+            no_window=True, 
+            file_types=(('画像ファイル', IMAGE_TYPES),),
+            multiple_files=True)
+        if files != None:
+            image_files.extend(files)
+            window['-LIST-'].update(image_files)
     if event == '画像をクリア':
         window['-LIST-'].update([])
-        continue
-    if event == '-LIST-' and values['-FILES-'] != '':
-        image_files = values['-FILES-'].split(';')
-        window['-LIST-'].update(image_files)
+        image_files = []
         continue
     if event == 'PDF作成':
         if image_files == []:
