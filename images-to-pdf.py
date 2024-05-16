@@ -1,10 +1,11 @@
-import PySimpleGUI as sg
 import os, sys
 import convert_image_pdf
+import TkEasyGUI as sg
 
 # 実行ファイルのパス
 ROOT = os.path.dirname(sys.argv[0])
-if ROOT == '': ROOT = os.path.dirname(os.path.abspath(__file__))
+if ROOT == '':
+    ROOT = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_PDF_PATH = os.path.join(ROOT, 'images.pdf')
 IMAGE_TYPES = '*.jpg;*.jpeg;*.jpe;*.heic'
 # デフォルトパスにある画像をリストに追加
@@ -18,8 +19,8 @@ if os.path.exists(IMAGE_DIR): # パスがあれば収集
 # 画面レイアウトを定義
 frame_pdf_path = [
     [
-        sg.InputText(DEFAULT_PDF_PATH, enable_events=True, key='-OUT-', size=(90,10)),
-        sg.FileSaveAs('保存先の変更', file_types=(('PDFファイル', '*.pdf'),), target='-OUT-'),
+        sg.InputText(DEFAULT_PDF_PATH, enable_events=True, key="-OUT-", expand_x=True),
+        sg.FileSaveAs("保存先の変更", file_types=(("PDFファイル", "*.pdf"),)),
     ]
 ]
 frame_images = [
@@ -33,10 +34,10 @@ frame_per_page = [
     [ sg.Combo(['2', '4', '6', '8'], default_value='6', key='-PERPAGE-')],
 ]
 layout = [
-    [ sg.Frame('画像の一覧', frame_images) ],
-    [ sg.Frame('1ページに割付ける枚数', frame_per_page) ],
-    [ sg.Frame('PDFの保存先', frame_pdf_path) ],
-    [ sg.Button('PDF作成'), sg.Button('終了') ],
+    [sg.Frame("画像の一覧", frame_images, expand_x=True)],
+    [sg.Frame("1ページに割付ける枚数", frame_per_page)],
+    [sg.Frame("PDFの保存先", frame_pdf_path, expand_x=True)],
+    [sg.Button("PDF作成"), sg.Button("終了")],
 ]
 window = sg.Window('画像一覧からPDF作成ツール', layout)
 
@@ -53,7 +54,7 @@ while True:
         files = sg.popup_get_file(
             '画像を選択してください', 
             no_window=True, 
-            file_types=(('画像ファイル', IMAGE_TYPES),),
+            # file_types=(('画像ファイル', IMAGE_TYPES)),
             multiple_files=True)
         if files != None:
             image_files.extend(files)

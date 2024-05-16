@@ -5,6 +5,7 @@ from reportlab.pdfgen import canvas
 import tempfile, os
 import sys
 import pillow_heif
+
 # 画像をリサイズする関数
 def resize_image(image, max_width, max_height):
     width, height = image.size
@@ -69,6 +70,7 @@ def convert_to_pdf(image_files, pdf_path, per_page):
     image_files = list(filter(
         lambda f: f.endswith('.jpg') or f.endswith('.jpeg') or f.endswith('.jpe') or f.endswith('.png') or f.endswith('.heic'), 
         image_files))
+    image_files = list(sorted(image_files))
     # 縦画像が多いか横画像が多いか判定する
     portrait_nums = 0
     landscape_nums = 0
