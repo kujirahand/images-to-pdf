@@ -2,7 +2,8 @@ from PIL import Image
 from PIL.ExifTags import TAGS
 from reportlab.lib.pagesizes import A4, landscape, portrait
 from reportlab.pdfgen import canvas
-import tempfile, os
+import tempfile
+import os
 import sys
 import pillow_heif
 
@@ -62,14 +63,19 @@ def open_image(image_file):
     img = change_image_rotation(img) # 回転
     return img
 
+def avalable_image_filter(f):
+    f = f.lower()
+    return f.endswith('.jpg') or \
+        f.endswith('.jpeg') or f.endswith('.jpe') or \
+        f.endswith('.png') or f.endswith('.heic') or \
+        f.endswith('.bmp') or f.endswith('.gif')
+
 def convert_to_pdf(image_files, pdf_path, per_page):
     # 画像ファイルのフィルタ
     image_files = list(filter(
         lambda f: not os.path.basename(f).startswith('___'), image_files))
     # 読み込み可能なファイル形式のみ残す
-    image_files = list(filter(
-        lambda f: f.endswith('.jpg') or f.endswith('.jpeg') or f.endswith('.jpe') or f.endswith('.png') or f.endswith('.heic'), 
-        image_files))
+    image_files = list(filter(avalable_image_filter, image_files))
     image_files = list(sorted(image_files))
     # 縦画像が多いか横画像が多いか判定する
     portrait_nums = 0
@@ -141,7 +147,7 @@ def proc_cur_files():
     image_files = [
         os.path.join(image_folder, f)
         for f in os.listdir(image_folder)
-        if f.endswith('.jpg') or f.endswith('.jpeg') or f.endswith('.png') or f.endswith('.heic')
+        if avalable_image_filter(f)
     ]
     image_files.sort()
     convert_to_pdf(image_files, output_pdf, 8)
