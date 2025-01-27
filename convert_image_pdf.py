@@ -96,8 +96,8 @@ def convert_to_pdf(image_files, pdf_path, per_page):
     # PDFファイルの作成と設定(A4)
     pagesize = portrait(A4)
     #      [0,1,2,3,4,5,6,7,8]
-    rows = [0,0,2,0,2,0,3,0,4]
-    cols = [0,0,1,0,2,0,2,0,2]
+    rows = [0,1,2,0,2,0,3,0,4]
+    cols = [0,1,1,0,2,0,2,0,2]
     revs = [0,0,0,0,1,0,0,0,0] # 縦横の個数を反転するか？
     if revs[per_page] == 1:
         is_portrait = not is_portrait
@@ -111,6 +111,7 @@ def convert_to_pdf(image_files, pdf_path, per_page):
     print(f'PageSize={width:.1f},{height:.1f}')
     # A4に縦向き6枚(2x3)で配置するように計算
     margin_x, margin_y = 15, 15
+    print("image_cols, image_rows=", image_cols, image_rows)
     image_width = (width - (image_cols+1) * margin_x) // image_cols
     image_height = (height - (image_rows+1) * margin_y) // image_rows
     # 画像をリサイズ、回転してPDFに貼り付け --- (*6)

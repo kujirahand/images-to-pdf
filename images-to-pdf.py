@@ -31,7 +31,7 @@ frame_images = [
     ],
 ]
 frame_per_page = [
-    [ sg.Combo(['2', '4', '6', '8'], default_value='6', key='-PERPAGE-')],
+    [ sg.Combo(['1', '2', '4', '6', '8'], default_value='6', key='-PERPAGE-')],
 ]
 layout = [
     [sg.Frame("画像の一覧", frame_images, expand_x=True)],
