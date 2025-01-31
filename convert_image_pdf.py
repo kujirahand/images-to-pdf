@@ -98,7 +98,7 @@ def convert_to_pdf(image_files, pdf_path, per_page):
     #      [0,1,2,3,4,5,6,7,8]
     rows = [0,1,2,0,2,0,3,0,4]
     cols = [0,1,1,0,2,0,2,0,2]
-    revs = [0,0,0,0,1,0,0,0,0] # 縦横の個数を反転するか？
+    revs = [0,1,0,0,1,0,0,0,0] # 縦横の個数を反転するか？
     if revs[per_page] == 1:
         is_portrait = not is_portrait
     if not is_portrait:
@@ -151,7 +151,7 @@ def proc_cur_files():
         if avalable_image_filter(f)
     ]
     image_files.sort()
-    convert_to_pdf(image_files, output_pdf, 8)
+    convert_to_pdf(image_files, output_pdf, 4)
 
 if __name__ == '__main__':
     proc_cur_files()
