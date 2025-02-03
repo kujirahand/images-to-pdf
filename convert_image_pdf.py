@@ -53,7 +53,7 @@ def heic_jpg(image_path, save_path):
     image.save(save_path, "JPEG")
 
 def open_image(image_file):
-    if image_file.endswith('.heic'): # .heic形式ならJPEGに変換
+    if image_file.endswith('.heic') or image_file.endswith('.HEIC'): # .heic形式ならJPEGに変換
         base_dir = os.path.dirname(image_file)
         base_name = os.path.basename(image_file)
         image_file_jpg = os.path.join(base_dir, '___tmp___' + base_name + '.jpg')
