@@ -138,12 +138,12 @@ def convert_to_pdf(image_files, pdf_path, per_page):
     print(pdf_path)
     print('* ご利用頂きましてありがとうございました。(^o^)')
 
-def proc_cur_files():
+def proc_cur_files(per_page=6):
     # フォルダ内のJPEGファイルを列挙
     root = os.path.dirname(sys.argv[0])
     image_folder = os.path.join(root, 'pdf-in')
     output_pdf = os.path.join(root, 'images.pdf')
-    print('* 以下のパスにある画像ファイルを貼り付けます:')
+    print(f"* 以下のパスにある画像ファイルを{per_page}ずつ貼り付けます:")
     print(image_folder)
     image_files = [
         os.path.join(image_folder, f)
@@ -151,7 +151,12 @@ def proc_cur_files():
         if avalable_image_filter(f)
     ]
     image_files.sort()
-    convert_to_pdf(image_files, output_pdf, 4)
+    convert_to_pdf(image_files, output_pdf, per_page)
 
 if __name__ == '__main__':
-    proc_cur_files()
+    if len(sys.argv) > 1:
+        per_page = int(sys.argv[1])
+        proc_cur_files(per_page)
+    else:
+        proc_cur_files(per_page=6)
+
